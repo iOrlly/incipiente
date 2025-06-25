@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projeto: API de Cotação de Moedas</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+    <aside class="sidebar">
+        <a href="index.html" class="logo">Julio'rlly</a>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="cursos.html">Cursos</a></li>
+                <li><a href="api-cotacao.html">Projetos</a></li>
+            </ul>
+        </nav>
+        <div class="sidebar-footer">
+             <a href="https://www.linkedin.com/in/júlio-o-rly-491845289/" target="_blank">LinkedIn</a>
+             <a href="https://github.com/iOrlly" target="_blank">GitHub</a>
+        </div>
+    </aside>
+
+    <main class="content">
+        <section class="project-detail-section container">
+            <h2>API de Cotação de Moedas</h2>
+
+            <div class="project-intro">
+                <p>Este projeto consiste no desenvolvimento de uma API RESTful em Python (utilizando FastAPI) que fornece cotações de moedas em tempo real. A API consulta dados de uma fonte externa confiável e os disponibiliza de forma padronizada para integração com outras aplicações.</p>
+                <div class="tecnologias-usadas">
+                    <h3>Tecnologias Utilizadas:</h3>
+                    <div class="skills">
+                        <span>Python</span>
+                        <span>FastAPI</span>
+                        <span>Requests</span>
+                        <span>JSON</span>
+                        <span>Docker (opcional, mas bom para mencionar se usar)</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="api-demo-section">
+                <h3>Demonstração da API</h3>
+                <p>Selecione as moedas para ver a cotação:</p>
+                <div class="currency-converter">
+                    <select id="moeda-base" class="currency-select">
+                        <option value="USD">USD - Dólar Americano</option>
+                        <option value="BRL">BRL - Real Brasileiro</option>
+                        <option value="EUR">EUR - Euro</option>
+                        </select>
+                    <span>para</span>
+                    <select id="moeda-destino" class="currency-select">
+                        <option value="BRL">BRL - Real Brasileiro</option>
+                        <option value="USD">USD - Dólar Americano</option>
+                        <option value="EUR">EUR - Euro</option>
+                        </select>
+                    <button id="get-cotacao-btn">Obter Cotação</button>
+                </div>
+                <div class="cotacao-resultado">
+                    <p>Cotação: <span id="cotacao-valor">--</span></p>
+                    <p class="ultima-atualizacao">Última atualização: <span id="ultima-atualizacao">--</span></p>
+                </div>
+
+                <div class="api-response-example">
+                    <h4>Exemplo de Resposta JSON da API:</h4>
+                    <pre><code id="json-response-code" class="language-json">
+{
+    "moeda_base": "USD",
+    "moeda_destino": "BRL",
+    "valor_cotacao": 5.2345,
+    "data_hora": "2025-06-24 19:30:00"
+}
+                    </code></pre>
+                    <p>Acesse a documentação interativa da API (Swagger UI): <a href="URL_SUA_API_DOCS" target="_blank">/docs</a></p>
+                    <p>Ver código no GitHub: <a href="URL_GITHUB_API_PROJETO" target="_blank">Repositório da API</a></p>
+                </div>
+            </div>
+        </section>
+        <footer>
+            <div class="container">
+                <p>&copy; 2025 Julio Silva. Todos os direitos reservados.</p>
+            </div>
+        </footer>
+    </main>
+
+    <script src="js/api-cotacao-script.js"></script> </body>
+</html>

@@ -1,0 +1,58 @@
+document.addEventListener('DOMContentLoaded', () => {
+    // Função para destacar o link da página atual na navegação
+    const highlightActiveLink = () => {
+        const currentPath = window.location.pathname.split('/').pop();
+        const navLinks = document.querySelectorAll('.sidebar nav ul li a');
+
+        navLinks.forEach(link => {
+            const linkPath = link.getAttribute('href').split('/').pop();
+            // Verifica se o caminho do link corresponde à página atual
+            // Adiciona um tratamento para a página inicial (index.html ou path vazio)
+            if (linkPath === currentPath || (currentPath === '' && linkPath === 'index.html')) {
+                link.classList.add('active');
+            } else {
+                link.classList.remove('active'); // Garante que apenas um link esteja ativo
+            }
+        });
+    };
+
+    highlightActiveLink();
+
+    // Opcional: Adicionar animações de "aparecer ao rolar"
+    // Usaremos a Intersection Observer API para performance
+    const observerOptions = {
+        root: null, // viewport
+        rootMargin: '0px',
+        threshold: 0.1 // 10% do elemento visível para disparar
+    };
+
+    const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('animated-fade-in-up');
+                observer.unobserve(entry.target); // Para animar apenas uma vez
+            }
+        });
+    }, observerOptions);
+
+    // Adicione a classe 'animate-on-scroll' aos elementos que você quer animar
+    // e o CSS fará o resto
+    document.querySelectorAll('.hero, .about-me, .learning-journey, .learning-item, .projeto-card, .curso-card').forEach(el => {
+        el.classList.add('animate-on-scroll');
+        observer.observe(el);
+    });
+
+    // CSS para as animações (adicione no seu style.css)
+    /*
+    .animate-on-scroll {
+        opacity: 0;
+        transform: translateY(20px);
+        transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    }
+
+    .animated-fade-in-up {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    */
+});
